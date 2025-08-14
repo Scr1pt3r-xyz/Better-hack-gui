@@ -907,7 +907,7 @@ end)
 while task.wait() do
 	if teleport and victim and victim.PrimaryPart then
 		hrp.CFrame = CFrame.lookAt(hrp.Position, victim.PrimaryPart.Position)
-		hrp.Orientation = Vector3.new(0,hrp.Orientation.Y,0)
+		--hrp.Orientation = Vector3.new(0,hrp.Orientation.Y,0)
 	end
 end
 
