@@ -906,7 +906,7 @@ game:GetService("RunService").RenderStepped:Connect(function(deltaTime)
 
 		-- Look at victim smoothly
 		local targetCF = CFrame.lookAt(currentPos, victimPos)
-		hrp.CFrame = hrp.CFrame:Lerp(targetCF, math.clamp(deltaTime * 8, 0, 1))
+		hrp.CFrame = hrp.CFrame:Lerp(targetCF, math.clamp(deltaTime * 16.1, 0, 1))
 
 		-- Follow if too far
 		local dist = (victimPos - currentPos).Magnitude
