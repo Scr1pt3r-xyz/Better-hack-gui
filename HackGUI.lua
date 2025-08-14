@@ -854,66 +854,69 @@ task.spawn(C_45);
 local function C_4d()
 local script = G2L["4d"];
 	local btm = script.Parent
-	local stop_btm = btm.Parent:WaitForChild("StopStare")
-	local textbox = btm.Parent:WaitForChild("Stare")
-	
-	local player = game.Players.LocalPlayer
-	local char = player.Character or player.CharacterAdded:Wait()
-	local humanoid = char:WaitForChild("Humanoid") :: Humanoid
-	local hrp = char:WaitForChild("HumanoidRootPart") :: BasePart
-	
-	local teleport = false
-	local victim: Model? = nil
-	
-	local TweenService = game:GetService("TweenService")
-	
-	-- Find victim by DisplayName or Name
-	local function findVictimByName(name: string): Model?
-		for _, model in ipairs(workspace:GetChildren()) do
-			local hum = model:FindFirstChildWhichIsA("Humanoid")
-			if hum and (hum.DisplayName == name or model.Name == name) then
-				return model
-			end
+local stop_btm = btm.Parent:WaitForChild("StopStare")
+local textbox = btm.Parent:WaitForChild("Stare")
+
+local player = game.Players.LocalPlayer
+local char = player.Character or player.CharacterAdded:Wait()
+local humanoid = char:WaitForChild("Humanoid") :: Humanoid
+local hrp = char:WaitForChild("HumanoidRootPart") :: BasePart
+
+local teleport = false
+local victim: Model? = nil
+local followSpeed = 10 -- studs per second
+local minDistance = 5  -- stop moving if closer than this
+
+-- Find victim by DisplayName or Name
+local function findVictimByName(name: string): Model?
+	for _, model in ipairs(workspace:GetChildren()) do
+		local hum = model:FindFirstChildWhichIsA("Humanoid")
+		if hum and (hum.DisplayName == name or model.Name == name) then
+			return model
 		end
-		return nil
 	end
-	
-	btm.MouseButton1Down:Connect(function()
-		local text = tostring(textbox.Text)
-		local found = findVictimByName(text)
-	
-		if found and found.PrimaryPart then
-			victim = found
-			teleport = true
-		else
-			textbox.Text = "Player Not Found."
-			task.wait(2)
-			textbox.Text = ""
-			teleport = false
-		end
-	end)
-	
-	stop_btm.MouseButton1Down:Connect(function()
+	return nil
+end
+
+btm.MouseButton1Down:Connect(function()
+	local text = tostring(textbox.Text)
+	local found = findVictimByName(text)
+
+	if found and found.PrimaryPart then
+		victim = found
+		teleport = true
+	else
+		textbox.Text = "Player Not Found."
+		task.wait(2)
+		textbox.Text = ""
 		teleport = false
-		victim = nil
-	end)
-	
-	-- Loop for smooth rotation
-	while task.wait() do
-		if teleport and victim and victim.PrimaryPart then
-			local targetCFrame = CFrame.lookAt(hrp.Position, victim.PrimaryPart.Position)
-			
-			-- Smoothly rotate using TweenService
-			local tween = TweenService:Create(
-				hrp,
-				TweenInfo.new(0.15, Enum.EasingStyle.Linear),
-				{ CFrame = targetCFrame }
-			)
-			tween:Play()
-			humanoid:MoveTo(victim.PrimaryPart.Position)
-			humanoid.MoveToFinished:Wait()
+	end
+end)
+
+stop_btm.MouseButton1Down:Connect(function()
+	teleport = false
+	victim = nil
+end)
+
+-- Smooth follow + rotation
+game:GetService("RunService").RenderStepped:Connect(function(deltaTime)
+	if teleport and victim and victim.PrimaryPart then
+		local victimPos = victim.PrimaryPart.Position
+		local currentPos = hrp.Position
+
+		-- Look at victim smoothly
+		local targetCF = CFrame.lookAt(currentPos, victimPos)
+		hrp.CFrame = hrp.CFrame:Lerp(targetCF, math.clamp(deltaTime * 8, 0, 1))
+
+		-- Follow if too far
+		local dist = (victimPos - currentPos).Magnitude
+		if dist > minDistance then
+			local direction = (victimPos - currentPos).Unit
+			hrp.CFrame = hrp.CFrame + (direction * followSpeed * deltaTime)
 		end
 	end
+end)
+
 	
 end;
 task.spawn(C_4d);
