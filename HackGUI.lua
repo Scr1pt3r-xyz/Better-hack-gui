@@ -283,10 +283,10 @@ G2L["23"]["PlaceholderColor3"] = Color3.fromRGB(66, 66, 66);
 G2L["23"]["BorderSizePixel"] = 0;
 G2L["23"]["TextWrapped"] = true;
 G2L["23"]["TextSize"] = 14;
-G2L["23"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["23"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["23"]["TextScaled"] = true;
 G2L["23"]["BackgroundColor3"] = Color3.fromRGB(0, 171, 255);
-G2L["23"]["FontFace"] = Font.new([[rbxassetid://16658246179]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["23"]["FontFace"] = Font.new([[rbxassetid://16658246179]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
 G2L["23"]["PlaceholderText"] = [[DisplayName For Teleport]];
 G2L["23"]["Size"] = UDim2.new(0.24155, 0, 0.08432, 0);
 G2L["23"]["Position"] = UDim2.new(0.02295, 0, 0.47218, 0);
@@ -319,10 +319,10 @@ G2L["27"]["PlaceholderColor3"] = Color3.fromRGB(66, 66, 66);
 G2L["27"]["BorderSizePixel"] = 0;
 G2L["27"]["TextWrapped"] = true;
 G2L["27"]["TextSize"] = 14;
-G2L["27"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["27"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["27"]["TextScaled"] = true;
 G2L["27"]["BackgroundColor3"] = Color3.fromRGB(0, 171, 255);
-G2L["27"]["FontFace"] = Font.new([[rbxassetid://16658246179]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["27"]["FontFace"] = Font.new([[rbxassetid://16658246179]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
 G2L["27"]["PlaceholderText"] = [[Walkspeed]];
 G2L["27"]["Size"] = UDim2.new(0.24155, 0, 0.08432, 0);
 G2L["27"]["Position"] = UDim2.new(0.02295, 0, 0.61551, 0);
@@ -355,10 +355,10 @@ G2L["2b"]["PlaceholderColor3"] = Color3.fromRGB(66, 66, 66);
 G2L["2b"]["BorderSizePixel"] = 0;
 G2L["2b"]["TextWrapped"] = true;
 G2L["2b"]["TextSize"] = 14;
-G2L["2b"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["2b"]["TextScaled"] = true;
 G2L["2b"]["BackgroundColor3"] = Color3.fromRGB(0, 171, 255);
-G2L["2b"]["FontFace"] = Font.new([[rbxassetid://16658246179]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["2b"]["FontFace"] = Font.new([[rbxassetid://16658246179]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
 G2L["2b"]["PlaceholderText"] = [[Jumppower]];
 G2L["2b"]["Size"] = UDim2.new(0.24155, 0, 0.08432, 0);
 G2L["2b"]["Position"] = UDim2.new(0.02295, 0, 0.75885, 0);
@@ -391,10 +391,10 @@ G2L["2f"]["PlaceholderColor3"] = Color3.fromRGB(66, 66, 66);
 G2L["2f"]["BorderSizePixel"] = 0;
 G2L["2f"]["TextWrapped"] = true;
 G2L["2f"]["TextSize"] = 14;
-G2L["2f"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["2f"]["TextScaled"] = true;
 G2L["2f"]["BackgroundColor3"] = Color3.fromRGB(0, 171, 255);
-G2L["2f"]["FontFace"] = Font.new([[rbxassetid://16658246179]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["2f"]["FontFace"] = Font.new([[rbxassetid://16658246179]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
 G2L["2f"]["PlaceholderText"] = [[DisplayName For Spectate]];
 G2L["2f"]["Size"] = UDim2.new(0.24155, 0, 0.08432, 0);
 G2L["2f"]["Position"] = UDim2.new(0.02295, 0, 0.89713, 0);
@@ -737,7 +737,7 @@ local script = G2L["45"];
 	
 	
 	btm.MouseButton1Down:Connect(function()
-		if toggle then
+		if toggle == false then
 			toggle = true
 			HRP.Anchored = true
 		else
