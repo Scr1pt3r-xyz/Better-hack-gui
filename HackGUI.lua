@@ -279,7 +279,7 @@ G2L["22"]["ActivatedCursorIcon"] = [[rbxassetid://0]];
 G2L["23"] = Instance.new("TextBox", G2L["2"]);
 G2L["23"]["CursorPosition"] = -1;
 G2L["23"]["Name"] = [[Teleport]];
-G2L["23"]["PlaceholderColor3"] = Color3.fromRGB(66, 66, 66);
+G2L["23"]["PlaceholderColor3"] = Color3.fromRGB(227, 227, 227);
 G2L["23"]["BorderSizePixel"] = 0;
 G2L["23"]["TextWrapped"] = true;
 G2L["23"]["TextSize"] = 14;
@@ -315,7 +315,7 @@ G2L["26"]["MaxTextSize"] = 38;
 G2L["27"] = Instance.new("TextBox", G2L["2"]);
 G2L["27"]["CursorPosition"] = -1;
 G2L["27"]["Name"] = [[WalkSpeed]];
-G2L["27"]["PlaceholderColor3"] = Color3.fromRGB(66, 66, 66);
+G2L["27"]["PlaceholderColor3"] = Color3.fromRGB(227, 227, 227);
 G2L["27"]["BorderSizePixel"] = 0;
 G2L["27"]["TextWrapped"] = true;
 G2L["27"]["TextSize"] = 14;
@@ -351,7 +351,7 @@ G2L["2a"]["MaxTextSize"] = 33;
 G2L["2b"] = Instance.new("TextBox", G2L["2"]);
 G2L["2b"]["CursorPosition"] = -1;
 G2L["2b"]["Name"] = [[JumpPower]];
-G2L["2b"]["PlaceholderColor3"] = Color3.fromRGB(66, 66, 66);
+G2L["2b"]["PlaceholderColor3"] = Color3.fromRGB(227, 227, 227);
 G2L["2b"]["BorderSizePixel"] = 0;
 G2L["2b"]["TextWrapped"] = true;
 G2L["2b"]["TextSize"] = 14;
@@ -387,7 +387,7 @@ G2L["2e"]["MaxTextSize"] = 33;
 G2L["2f"] = Instance.new("TextBox", G2L["2"]);
 G2L["2f"]["CursorPosition"] = -1;
 G2L["2f"]["Name"] = [[Spectate]];
-G2L["2f"]["PlaceholderColor3"] = Color3.fromRGB(66, 66, 66);
+G2L["2f"]["PlaceholderColor3"] = Color3.fromRGB(227, 227, 227);
 G2L["2f"]["BorderSizePixel"] = 0;
 G2L["2f"]["TextWrapped"] = true;
 G2L["2f"]["TextSize"] = 14;
@@ -562,6 +562,112 @@ G2L["44"]["MaxTextSize"] = 20;
 -- StarterGui.HackUI.Frame.TextButton.LocalScript
 G2L["45"] = Instance.new("LocalScript", G2L["41"]);
 
+
+
+-- StarterGui.HackUI.Frame.Stare
+G2L["46"] = Instance.new("TextBox", G2L["2"]);
+G2L["46"]["CursorPosition"] = -1;
+G2L["46"]["Name"] = [[Stare]];
+G2L["46"]["PlaceholderColor3"] = Color3.fromRGB(227, 227, 227);
+G2L["46"]["BorderSizePixel"] = 0;
+G2L["46"]["TextWrapped"] = true;
+G2L["46"]["TextSize"] = 14;
+G2L["46"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["46"]["TextScaled"] = true;
+G2L["46"]["BackgroundColor3"] = Color3.fromRGB(0, 171, 255);
+G2L["46"]["FontFace"] = Font.new([[rbxassetid://16658246179]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["46"]["PlaceholderText"] = [[Stare At]];
+G2L["46"]["Size"] = UDim2.new(0.24155, 0, 0.08432, 0);
+G2L["46"]["Position"] = UDim2.new(0.30914, 0, 0.89701, 0);
+G2L["46"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["46"]["Text"] = [[]];
+
+
+-- StarterGui.HackUI.Frame.Stare.UIStroke
+G2L["47"] = Instance.new("UIStroke", G2L["46"]);
+G2L["47"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["47"]["Thickness"] = 5;
+G2L["47"]["Color"] = Color3.fromRGB(0, 145, 217);
+
+
+-- StarterGui.HackUI.Frame.Stare.UICorner
+G2L["48"] = Instance.new("UICorner", G2L["46"]);
+
+
+
+-- StarterGui.HackUI.Frame.Stare.UITextSizeConstraint
+G2L["49"] = Instance.new("UITextSizeConstraint", G2L["46"]);
+G2L["49"]["MaxTextSize"] = 38;
+
+
+-- StarterGui.HackUI.Frame.TextButton
+G2L["4a"] = Instance.new("TextButton", G2L["2"]);
+G2L["4a"]["TextWrapped"] = true;
+G2L["4a"]["BorderSizePixel"] = 0;
+G2L["4a"]["TextSize"] = 20;
+G2L["4a"]["TextScaled"] = true;
+G2L["4a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4a"]["BackgroundColor3"] = Color3.fromRGB(0, 171, 255);
+G2L["4a"]["FontFace"] = Font.new([[rbxassetid://16658246179]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["4a"]["Size"] = UDim2.new(0.15942, 0, 0.09612, 0);
+G2L["4a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4a"]["Text"] = [[Stare At Player]];
+G2L["4a"]["Position"] = UDim2.new(0.41976, 0, 0.17385, 0);
+
+
+-- StarterGui.HackUI.Frame.TextButton.UICorner
+G2L["4b"] = Instance.new("UICorner", G2L["4a"]);
+
+
+
+-- StarterGui.HackUI.Frame.TextButton.UIStroke
+G2L["4c"] = Instance.new("UIStroke", G2L["4a"]);
+G2L["4c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["4c"]["Thickness"] = 5;
+G2L["4c"]["Color"] = Color3.fromRGB(0, 145, 217);
+
+
+-- StarterGui.HackUI.Frame.TextButton.Teleport
+G2L["4d"] = Instance.new("LocalScript", G2L["4a"]);
+G2L["4d"]["Name"] = [[Teleport]];
+
+
+-- StarterGui.HackUI.Frame.TextButton.UITextSizeConstraint
+G2L["4e"] = Instance.new("UITextSizeConstraint", G2L["4a"]);
+G2L["4e"]["MaxTextSize"] = 20;
+
+
+-- StarterGui.HackUI.Frame.StopStare
+G2L["4f"] = Instance.new("TextButton", G2L["2"]);
+G2L["4f"]["TextWrapped"] = true;
+G2L["4f"]["BorderSizePixel"] = 0;
+G2L["4f"]["TextSize"] = 20;
+G2L["4f"]["TextScaled"] = true;
+G2L["4f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["4f"]["BackgroundColor3"] = Color3.fromRGB(0, 171, 255);
+G2L["4f"]["FontFace"] = Font.new([[rbxassetid://16658246179]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["4f"]["Size"] = UDim2.new(0.15942, 0, 0.09612, 0);
+G2L["4f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["4f"]["Text"] = [[Stop Stare]];
+G2L["4f"]["Name"] = [[StopStare]];
+G2L["4f"]["Position"] = UDim2.new(0.81587, 0, 0.17385, 0);
+
+
+-- StarterGui.HackUI.Frame.StopStare.UICorner
+G2L["50"] = Instance.new("UICorner", G2L["4f"]);
+
+
+
+-- StarterGui.HackUI.Frame.StopStare.UIStroke
+G2L["51"] = Instance.new("UIStroke", G2L["4f"]);
+G2L["51"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["51"]["Thickness"] = 5;
+G2L["51"]["Color"] = Color3.fromRGB(0, 145, 217);
+
+
+-- StarterGui.HackUI.Frame.StopStare.UITextSizeConstraint
+G2L["52"] = Instance.new("UITextSizeConstraint", G2L["4f"]);
+G2L["52"]["MaxTextSize"] = 20;
 
 
 -- StarterGui.HackUI.Frame.TextButton.Teleport
@@ -747,5 +853,54 @@ local script = G2L["45"];
 	end)
 end;
 task.spawn(C_45);
+-- StarterGui.HackUI.Frame.TextButton.Teleport
+local function C_4d()
+local script = G2L["4d"];
+	local btm = script.Parent
+	local stop_btm = btm.Parent:WaitForChild('StopStare')
+	local victim = nil
+	local textbox = btm.Parent:WaitForChild('Stare')
+	local teleport = false
+	local player = game.Players.LocalPlayer
+	local char = player.Character or player.CharacterAdded:Wait()
+	local humanoid = char:WaitForChild('Humanoid') :: Humanoid
+	local hrp = char:WaitForChild('HumanoidRootPart'):: BasePart
+	local camera = workspace.CurrentCamera
+	
+	
+	btm.MouseButton1Down:Connect(function()
+		if btm then
+			local text = tostring(textbox.Text)
+			local parent
+			for i,v in ipairs(workspace:GetDescendants()) do
+				if v and v:IsA('Humanoid') and v.DisplayName == text then
+					parent = v.Parent
+				end
+			end
+	
+			if parent ~= nil then
+				victim = parent :: Model
+				teleport = true
+			else
+				textbox.Text = 'Player Not Found.'
+				task.wait(2)
+				textbox.Text = ''
+				teleport = false
+			end
+		end
+	end)
+	
+	stop_btm.MouseButton1Down:Connect(function()
+		if teleport == true then
+			teleport = false
+			victim = nil
+			hrp.CFrame = CFrame.lookAt(hrp.Position, victim.PrimaryPart.Position)
+			hrp.Orientation = Vector3.new(0,hrp.Orientation.Y,0)
+		end
+	end)
+	
+	
+end;
+task.spawn(C_4d);
 
 return G2L["1"], require;
