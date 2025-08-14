@@ -1,4 +1,16 @@
-print("Loaded HACK GUI")
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+]=]
+
+-- Instances: 69 | Scripts: 7 | Modules: 0 | Tags: 0
+local message = Instance.new("Hint", workspace)
+message.Text = "Loaded GUI"
+game.Debris:AddItem(message, 5)
 local G2L = {};
 
 -- StarterGui.HackUI
@@ -478,6 +490,80 @@ G2L["3b"] = Instance.new("UIAspectRatioConstraint", G2L["2"]);
 G2L["3b"]["AspectRatio"] = 1.30937;
 
 
+-- StarterGui.HackUI.Frame.TextButton
+G2L["3c"] = Instance.new("TextButton", G2L["2"]);
+G2L["3c"]["TextWrapped"] = true;
+G2L["3c"]["BorderSizePixel"] = 0;
+G2L["3c"]["TextSize"] = 20;
+G2L["3c"]["TextScaled"] = true;
+G2L["3c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3c"]["BackgroundColor3"] = Color3.fromRGB(0, 171, 255);
+G2L["3c"]["FontFace"] = Font.new([[rbxassetid://16658246179]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["3c"]["Size"] = UDim2.new(0.15942, 0, 0.09612, 0);
+G2L["3c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3c"]["Text"] = [[Get Jerk Off]];
+G2L["3c"]["Position"] = UDim2.new(0.22175, 0, 0.31764, 0);
+
+
+-- StarterGui.HackUI.Frame.TextButton.UICorner
+G2L["3d"] = Instance.new("UICorner", G2L["3c"]);
+
+
+
+-- StarterGui.HackUI.Frame.TextButton.UIStroke
+G2L["3e"] = Instance.new("UIStroke", G2L["3c"]);
+G2L["3e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["3e"]["Thickness"] = 5;
+G2L["3e"]["Color"] = Color3.fromRGB(0, 145, 217);
+
+
+-- StarterGui.HackUI.Frame.TextButton.UITextSizeConstraint
+G2L["3f"] = Instance.new("UITextSizeConstraint", G2L["3c"]);
+G2L["3f"]["MaxTextSize"] = 20;
+
+
+-- StarterGui.HackUI.Frame.TextButton.LocalScript
+G2L["40"] = Instance.new("LocalScript", G2L["3c"]);
+
+
+
+-- StarterGui.HackUI.Frame.TextButton
+G2L["41"] = Instance.new("TextButton", G2L["2"]);
+G2L["41"]["TextWrapped"] = true;
+G2L["41"]["BorderSizePixel"] = 0;
+G2L["41"]["TextSize"] = 20;
+G2L["41"]["TextScaled"] = true;
+G2L["41"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["41"]["BackgroundColor3"] = Color3.fromRGB(0, 171, 255);
+G2L["41"]["FontFace"] = Font.new([[rbxassetid://16658246179]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["41"]["Size"] = UDim2.new(0.15942, 0, 0.09612, 0);
+G2L["41"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["41"]["Text"] = [[Freeze In Place]];
+G2L["41"]["Position"] = UDim2.new(0.41809, 0, 0.03224, 0);
+
+
+-- StarterGui.HackUI.Frame.TextButton.UICorner
+G2L["42"] = Instance.new("UICorner", G2L["41"]);
+
+
+
+-- StarterGui.HackUI.Frame.TextButton.UIStroke
+G2L["43"] = Instance.new("UIStroke", G2L["41"]);
+G2L["43"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["43"]["Thickness"] = 5;
+G2L["43"]["Color"] = Color3.fromRGB(0, 145, 217);
+
+
+-- StarterGui.HackUI.Frame.TextButton.UITextSizeConstraint
+G2L["44"] = Instance.new("UITextSizeConstraint", G2L["41"]);
+G2L["44"]["MaxTextSize"] = 20;
+
+
+-- StarterGui.HackUI.Frame.TextButton.LocalScript
+G2L["45"] = Instance.new("LocalScript", G2L["41"]);
+
+
+
 -- StarterGui.HackUI.Frame.TextButton.Teleport
 local function C_8()
 local script = G2L["8"];
@@ -627,5 +713,39 @@ local script = G2L["1c"];
 	end)
 end;
 task.spawn(C_1c);
+-- StarterGui.HackUI.Frame.TextButton.LocalScript
+local function C_40()
+local script = G2L["40"];
+	script.Parent.MouseButton1Down:Connect(function()
+		loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
+		loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
+	end)
+	
+	
+end;
+task.spawn(C_40);
+-- StarterGui.HackUI.Frame.TextButton.LocalScript
+local function C_45()
+local script = G2L["45"];
+	local btm = script.Parent
+	local player = game.Players.LocalPlayer
+	local character = player.Character or player.CharacterAdded:Wait()
+	local humanoid = character:WaitForChild('Humanoid'):: Humanoid
+	local HRP = character:WaitForChild('HumanoidRootPart'):: BasePart
+	
+	local toggle = false
+	
+	
+	btm.MouseButton1Down:Connect(function()
+		if toggle then
+			toggle = true
+			HRP.Anchored = true
+		else
+			toggle = false
+			HRP.Anchored = false
+		end
+	end)
+end;
+task.spawn(C_45);
 
 return G2L["1"], require;
