@@ -7,10 +7,7 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
 ]=]
 
--- Instances: 69 | Scripts: 7 | Modules: 0 | Tags: 0
-local message = Instance.new("Hint", workspace)
-message.Text = "Loaded GUI"
-game.Debris:AddItem(message, 5)
+-- Instances: 82 | Scripts: 8 | Modules: 0 | Tags: 0
 local G2L = {};
 
 -- StarterGui.HackUI
@@ -857,60 +854,65 @@ task.spawn(C_45);
 local function C_4d()
 local script = G2L["4d"];
 	local btm = script.Parent
-local stop_btm = btm.Parent:WaitForChild("StopStare")
-local textbox = btm.Parent:WaitForChild("Stare")
-
-local player = game.Players.LocalPlayer
-local char = player.Character or player.CharacterAdded:Wait()
-local humanoid = char:WaitForChild("Humanoid") :: Humanoid
-local hrp = char:WaitForChild("HumanoidRootPart") :: BasePart
-
-local teleport = false
-local victim: Model? = nil
-
--- Find victim by DisplayName or Name
-local function findVictimByName(name: string): Model?
-	for _, model in ipairs(workspace:GetChildren()) do
-		local hum = model:FindFirstChildWhichIsA("Humanoid")
-		if hum and (hum.DisplayName == name or model.Name == name) then
-			return model
+	local stop_btm = btm.Parent:WaitForChild("StopStare")
+	local textbox = btm.Parent:WaitForChild("Stare")
+	
+	local player = game.Players.LocalPlayer
+	local char = player.Character or player.CharacterAdded:Wait()
+	local humanoid = char:WaitForChild("Humanoid") :: Humanoid
+	local hrp = char:WaitForChild("HumanoidRootPart") :: BasePart
+	
+	local teleport = false
+	local victim: Model? = nil
+	
+	local TweenService = game:GetService("TweenService")
+	
+	-- Find victim by DisplayName or Name
+	local function findVictimByName(name: string): Model?
+		for _, model in ipairs(workspace:GetChildren()) do
+			local hum = model:FindFirstChildWhichIsA("Humanoid")
+			if hum and (hum.DisplayName == name or model.Name == name) then
+				return model
+			end
+		end
+		return nil
+	end
+	
+	btm.MouseButton1Down:Connect(function()
+		local text = tostring(textbox.Text)
+		local found = findVictimByName(text)
+	
+		if found and found.PrimaryPart then
+			victim = found
+			teleport = true
+		else
+			textbox.Text = "Player Not Found."
+			task.wait(2)
+			textbox.Text = ""
+			teleport = false
+		end
+	end)
+	
+	stop_btm.MouseButton1Down:Connect(function()
+		teleport = false
+		victim = nil
+	end)
+	
+	-- Loop for smooth rotation
+	while task.wait() do
+		if teleport and victim and victim.PrimaryPart then
+			local targetCFrame = CFrame.lookAt(hrp.Position, victim.PrimaryPart.Position)
+	
+			-- Smoothly rotate using TweenService
+			local tween = TweenService:Create(
+				hrp,
+				TweenInfo.new(0.15, Enum.EasingStyle.Linear),
+				{ CFrame = targetCFrame }
+			)
+			tween:Play()
 		end
 	end
-	return nil
-end
-
-btm.MouseButton1Down:Connect(function()
-	local text = tostring(textbox.Text)
-	local found = findVictimByName(text)
-
-	if found and found.PrimaryPart then
-		victim = found
-		teleport = true
-	else
-		textbox.Text = "Player Not Found."
-		task.wait(2)
-		textbox.Text = ""
-		teleport = false
-	end
-end)
-
-stop_btm.MouseButton1Down:Connect(function()
-	if teleport and victim and victim.PrimaryPart then
-		-- Look once at victim
-		hrp.CFrame = CFrame.lookAt(hrp.Position, victim.PrimaryPart.Position)
-	end
-	teleport = false
-	victim = nil
-end)
-
--- Loop
-while task.wait() do
-	if teleport and victim and victim.PrimaryPart then
-		hrp.CFrame = CFrame.lookAt(hrp.Position, victim.PrimaryPart.Position)
-	end
-end
-
-
+	
 end;
 task.spawn(C_4d);
 
