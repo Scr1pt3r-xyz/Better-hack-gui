@@ -864,7 +864,7 @@ local hrp = char:WaitForChild("HumanoidRootPart") :: BasePart
 
 local teleport = false
 local victim: Model? = nil
-local followSpeed = 10 -- studs per second
+local followSpeed = 16.1 -- studs per second
 local minDistance = 5  -- stop moving if closer than this
 
 -- Find victim by DisplayName or Name
