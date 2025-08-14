@@ -857,54 +857,59 @@ task.spawn(C_45);
 local function C_4d()
 local script = G2L["4d"];
 	local btm = script.Parent
-	local stop_btm = btm.Parent:WaitForChild('StopStare')
-	local victim = nil
-	local textbox = btm.Parent:WaitForChild('Stare')
-	local teleport = false
-	local player = game.Players.LocalPlayer
-	local char = player.Character or player.CharacterAdded:Wait()
-	local humanoid = char:WaitForChild('Humanoid') :: Humanoid
-	local hrp = char:WaitForChild('HumanoidRootPart'):: BasePart
-	local camera = workspace.CurrentCamera
-	
-	
-	btm.MouseButton1Down:Connect(function()
-		if btm then
-			local text = tostring(textbox.Text)
-			local parent
-			for i,v in ipairs(workspace:GetDescendants()) do
-				if v and v:IsA('Humanoid') and v.DisplayName == text then
-					parent = v.Parent
-				end
-			end
-	
-			if parent ~= nil then
-				victim = parent :: Model
-				teleport = true
-			else
-				textbox.Text = 'Player Not Found.'
-				task.wait(2)
-				textbox.Text = ''
-				teleport = false
-			end
-		end
-	end)
-	
-	stop_btm.MouseButton1Down:Connect(function()
-		if teleport == true then
-			teleport = false
-			victim = nil
-			hrp.CFrame = CFrame.lookAt(hrp.Position, victim.PrimaryPart.Position)
-			hrp.Orientation = Vector3.new(0,hrp.Orientation.Y,0)
-		end
-	end)
-	
-	while task.wait() do
-		if teleport == true then
-			hrp.CFrame = CFrame.lookAt(hrp.Position, victim.PrimaryPart.Position)
-			hrp.Orientation = Vector3.new(0,hrp.Orientation.Y,0)
+local stop_btm = btm.Parent:WaitForChild("StopStare")
+local textbox = btm.Parent:WaitForChild("Stare")
+
+local player = game.Players.LocalPlayer
+local char = player.Character or player.CharacterAdded:Wait()
+local humanoid = char:WaitForChild("Humanoid") :: Humanoid
+local hrp = char:WaitForChild("HumanoidRootPart") :: BasePart
+
+local teleport = false
+local victim: Model? = nil
+
+-- Find victim by DisplayName or Name
+local function findVictimByName(name: string): Model?
+	for _, model in ipairs(workspace:GetChildren()) do
+		local hum = model:FindFirstChildWhichIsA("Humanoid")
+		if hum and (hum.DisplayName == name or model.Name == name) then
+			return model
 		end
 	end
+	return nil
+end
+
+btm.MouseButton1Down:Connect(function()
+	local text = tostring(textbox.Text)
+	local found = findVictimByName(text)
+
+	if found and found.PrimaryPart then
+		victim = found
+		teleport = true
+	else
+		textbox.Text = "Player Not Found."
+		task.wait(2)
+		textbox.Text = ""
+		teleport = false
+	end
+end)
+
+stop_btm.MouseButton1Down:Connect(function()
+	if teleport and victim and victim.PrimaryPart then
+		-- Look once at victim
+		hrp.CFrame = CFrame.lookAt(hrp.Position, victim.PrimaryPart.Position)
+	end
+	teleport = false
+	victim = nil
+end)
+
+-- Loop
+while task.wait() do
+	if teleport and victim and victim.PrimaryPart then
+		hrp.CFrame = CFrame.lookAt(hrp.Position, victim.PrimaryPart.Position)
+	end
+end
+
 end;
 task.spawn(C_4d);
 
