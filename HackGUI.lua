@@ -899,7 +899,7 @@ local script = G2L["4d"];
 		end
 	end)
 	
-	while true do
+	while task.wait() do
 		if teleport == true then
 			hrp.CFrame = CFrame.lookAt(hrp.Position, victim.PrimaryPart.Position)
 			hrp.Orientation = Vector3.new(0,hrp.Orientation.Y,0)
