@@ -1,4 +1,4 @@
---[=[
+ ss--[=[
  d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
 88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
 88      88    88    88            odD'      88      88    88 88ooo88 
@@ -883,6 +883,8 @@ btm.MouseButton1Down:Connect(function()
 	local found = findVictimByName(text)
 
 	if found and found.PrimaryPart then
+		workspace.Gravity = -500
+		game.Players.LocalPlayer.Character.Humanoid.Sit = true
 		victim = found
 		teleport = true
 	else
@@ -896,6 +898,8 @@ end)
 stop_btm.MouseButton1Down:Connect(function()
 	teleport = false
 	victim = nil
+	game.Players.LocalPlayer.Character.Humanoid.Sit = false
+	workspace.Gravity = 190
 end)
 
 -- Smooth follow + rotation
