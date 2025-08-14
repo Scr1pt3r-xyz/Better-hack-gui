@@ -902,7 +902,7 @@ local script = G2L["4d"];
 	while task.wait() do
 		if teleport and victim and victim.PrimaryPart then
 			local targetCFrame = CFrame.lookAt(hrp.Position, victim.PrimaryPart.Position)
-	
+			humanoid:MoveTo(victim.PrimaryPart.Position)
 			-- Smoothly rotate using TweenService
 			local tween = TweenService:Create(
 				hrp,
